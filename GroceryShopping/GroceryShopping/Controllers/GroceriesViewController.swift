@@ -12,8 +12,10 @@ class GroceriesViewController: UIViewController {
 
     private let tableView = UITableView()
     private var viewModel = GroceriesViewModel()
+    private let segmentedControl : UISegmentedControl
     
     init() {
+        segmentedControl = UISegmentedControl(items: Array(viewModel.changeRates.keys))
         super.init(nibName: nil, bundle: nil)
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -24,13 +26,32 @@ class GroceriesViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = tableView
+        let view = UIView()
+        view.addSubview(segmentedControl)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 84).isActive = true
+        segmentedControl.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 10).isActive = true
+        segmentedControl.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -10).isActive = true
+        segmentedControl.selectedSegmentIndex = 0
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20).isActive = true
+        tableView.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo:view.widthAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant: -20).isActive = true
+        
+        self.view = view
         self.title = "Grocery Shopping"
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.updateRates {
+            Alerts.showNetworkError(target: self)
+        }
+        
         let checkoutItem = UIBarButtonItem(image: #imageLiteral(resourceName: "logo_small"), style: .plain, target: self, action: #selector(checkout))
         self.navigationItem.rightBarButtonItem = checkoutItem
     }
@@ -74,8 +95,11 @@ extension GroceriesViewController {
     }
     
     @objc func checkout() {
-        let totalAmount = viewModel.groceriesArray.reduce(0) { $0 + Float($1.amount) * $1.cost}
-        Alerts.showTotalCosts(target: self, amount: totalAmount)
+        let totalAmountInUSD = viewModel.groceriesArray.reduce(0) { $0 + Float($1.amount) * $1.cost}
+        let selectedCurrency = self.segmentedControl.titleForSegment(at: self.segmentedControl.selectedSegmentIndex) ?? "USD"
+        let multiplier = viewModel.changeRates[selectedCurrency]
+        let totalAmount = totalAmountInUSD  * Float(multiplier!)
+        Alerts.showTotalCosts(target: self, amount: totalAmount, currency: selectedCurrency)
     }
 }
 

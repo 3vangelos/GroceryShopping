@@ -323,6 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENCY_API_KEY = "PLEASE PROVIDE YOUR API KEY HERE";
 				DEVELOPMENT_TEAM = TKF3PVL895;
 				INFOPLIST_FILE = "$(SRCROOT)/GroceryShopping/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -337,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENCY_API_KEY = "PLEASE PROVIDE YOUR API KEY HERE";
 				DEVELOPMENT_TEAM = TKF3PVL895;
 				INFOPLIST_FILE = "$(SRCROOT)/GroceryShopping/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
