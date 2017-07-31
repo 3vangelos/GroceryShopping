@@ -10,7 +10,7 @@ import Foundation
 
 struct GroceriesViewModel {
     
-    let groceriesArray = [ Grocery(name: "Peas"),
+    var groceriesArray = [ Grocery(name: "Peas"),
                            Grocery(name: "Eggs"),
                            Grocery(name: "Milk"),
                            Grocery(name: "Beans") ]

@@ -11,7 +11,7 @@ import UIKit
 class GroceriesViewController: UIViewController {
 
     private let tableView = UITableView()
-    private let viewModel = GroceriesViewModel()
+    private var viewModel = GroceriesViewModel()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -36,10 +36,30 @@ extension GroceriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableViewCell = UITableViewCell()
-        tableViewCell.textLabel?.text = viewModel.groceriesArray[indexPath.row].name
-        return tableViewCell
+        let cell = GroceryTableViewCell()
+        let grocery = viewModel.groceriesArray[indexPath.row]
+        
+        cell.textLabel?.text = grocery.name
+        cell.amountLabel.text = String(describing: grocery.amount)
+        cell.minusButton.addTarget(self, action: #selector(GroceriesViewController.minusButtonTapped(sender:)), for: .touchUpInside)
+        cell.minusButton.tag = indexPath.row
+        cell.addButton.addTarget(self, action: #selector(GroceriesViewController.addButtonTapped(sender:)), for: .touchUpInside)
+        cell.addButton.tag = indexPath.row
+        return cell
+    }
+}
+
+extension GroceriesViewController {
+    @objc func minusButtonTapped(sender: UIButton) {
+        let newAmount = viewModel.groceriesArray[sender.tag].amount - 1
+        viewModel.groceriesArray[sender.tag].amount = newAmount > 0 ? newAmount : 0
+        self.tableView.reloadData()
     }
     
+    @objc func addButtonTapped(sender: UIButton) {
+        let newAmount = viewModel.groceriesArray[sender.tag].amount + 1
+        viewModel.groceriesArray[sender.tag].amount = newAmount < 99 ? newAmount : 99
+        self.tableView.reloadData()
+    }
 }
 

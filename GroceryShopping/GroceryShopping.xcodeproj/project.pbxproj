@@ -14,6 +14,7 @@
 		D370397B1F2FBE5A005B2CCA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370397A1F2FBE5A005B2CCA /* Colors.swift */; };
 		D370397E1F2FC2EF005B2CCA /* GroceriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370397D1F2FC2EF005B2CCA /* GroceriesViewModel.swift */; };
 		D37039811F2FC392005B2CCA /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039801F2FC392005B2CCA /* Grocery.swift */; };
+		D37039831F2FC7D2005B2CCA /* GroceryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039821F2FC7D2005B2CCA /* GroceryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		D370397A1F2FBE5A005B2CCA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D370397D1F2FC2EF005B2CCA /* GroceriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesViewModel.swift; sourceTree = "<group>"; };
 		D37039801F2FC392005B2CCA /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
+		D37039821F2FC7D2005B2CCA /* GroceryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				D37039641F2FA913005B2CCA /* GroceriesViewController.swift */,
+				D37039821F2FC7D2005B2CCA /* GroceryTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D370397E1F2FC2EF005B2CCA /* GroceriesViewModel.swift in Sources */,
+				D37039831F2FC7D2005B2CCA /* GroceryTableViewCell.swift in Sources */,
 				D37039651F2FA913005B2CCA /* GroceriesViewController.swift in Sources */,
 				D370397B1F2FBE5A005B2CCA /* Colors.swift in Sources */,
 				D37039631F2FA913005B2CCA /* AppDelegate.swift in Sources */,
