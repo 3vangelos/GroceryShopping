@@ -11,6 +11,7 @@ import UIKit
 class GroceriesViewController: UIViewController {
 
     private let tableView = UITableView()
+    private let viewModel = GroceriesViewModel()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -31,11 +32,13 @@ class GroceriesViewController: UIViewController {
 extension GroceriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel.groceriesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let tableViewCell = UITableViewCell()
+        tableViewCell.textLabel?.text = viewModel.groceriesArray[indexPath.row].name
+        return tableViewCell
     }
     
 }
