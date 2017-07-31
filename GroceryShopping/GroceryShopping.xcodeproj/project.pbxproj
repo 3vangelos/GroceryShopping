@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		D37039631F2FA913005B2CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039621F2FA913005B2CCA /* AppDelegate.swift */; };
-		D37039651F2FA913005B2CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039641F2FA913005B2CCA /* ViewController.swift */; };
-		D37039681F2FA913005B2CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37039661F2FA913005B2CCA /* Main.storyboard */; };
+		D37039651F2FA913005B2CCA /* GroceriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039641F2FA913005B2CCA /* GroceriesViewController.swift */; };
 		D370396A1F2FA913005B2CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37039691F2FA913005B2CCA /* Assets.xcassets */; };
-		D370396D1F2FA913005B2CCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D370396B1F2FA913005B2CCA /* LaunchScreen.storyboard */; };
+		D37039781F2FBBF1005B2CCA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37039771F2FBBF1005B2CCA /* Colors.xcassets */; };
+		D370397B1F2FBE5A005B2CCA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370397A1F2FBE5A005B2CCA /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D370395F1F2FA913005B2CCA /* GroceryShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37039621F2FA913005B2CCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D37039641F2FA913005B2CCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D37039671F2FA913005B2CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D37039641F2FA913005B2CCA /* GroceriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesViewController.swift; sourceTree = "<group>"; };
 		D37039691F2FA913005B2CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D370396C1F2FA913005B2CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D370396E1F2FA913005B2CCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D37039761F2FB95F005B2CCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D37039771F2FBBF1005B2CCA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D370397A1F2FBE5A005B2CCA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +56,38 @@
 			isa = PBXGroup;
 			children = (
 				D37039621F2FA913005B2CCA /* AppDelegate.swift */,
-				D37039641F2FA913005B2CCA /* ViewController.swift */,
-				D37039661F2FA913005B2CCA /* Main.storyboard */,
-				D37039691F2FA913005B2CCA /* Assets.xcassets */,
-				D370396B1F2FA913005B2CCA /* LaunchScreen.storyboard */,
-				D370396E1F2FA913005B2CCA /* Info.plist */,
+				D37039741F2FB6D6005B2CCA /* Controllers */,
+				D37039791F2FBE42005B2CCA /* Helpers */,
+				D37039751F2FB6F4005B2CCA /* Supporting */,
 			);
 			path = GroceryShopping;
+			sourceTree = "<group>";
+		};
+		D37039741F2FB6D6005B2CCA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D37039641F2FA913005B2CCA /* GroceriesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D37039751F2FB6F4005B2CCA /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				D37039691F2FA913005B2CCA /* Assets.xcassets */,
+				D37039771F2FBBF1005B2CCA /* Colors.xcassets */,
+				D37039761F2FB95F005B2CCA /* Info.plist */,
+				D370396B1F2FA913005B2CCA /* LaunchScreen.storyboard */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		D37039791F2FBE42005B2CCA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D370397A1F2FBE5A005B2CCA /* Colors.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +148,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D370396D1F2FA913005B2CCA /* LaunchScreen.storyboard in Resources */,
 				D370396A1F2FA913005B2CCA /* Assets.xcassets in Resources */,
-				D37039681F2FA913005B2CCA /* Main.storyboard in Resources */,
+				D37039781F2FBBF1005B2CCA /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37039651F2FA913005B2CCA /* ViewController.swift in Sources */,
+				D37039651F2FA913005B2CCA /* GroceriesViewController.swift in Sources */,
+				D370397B1F2FBE5A005B2CCA /* Colors.swift in Sources */,
 				D37039631F2FA913005B2CCA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +169,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D37039661F2FA913005B2CCA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D37039671F2FA913005B2CCA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D370396B1F2FA913005B2CCA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -274,7 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TKF3PVL895;
-				INFOPLIST_FILE = GroceryShopping/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GroceryShopping/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sismanidis.GroceryShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,7 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TKF3PVL895;
-				INFOPLIST_FILE = GroceryShopping/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GroceryShopping/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sismanidis.GroceryShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
