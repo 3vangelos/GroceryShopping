@@ -27,7 +27,16 @@ class GroceriesViewController: UIViewController {
         self.view = tableView
         self.title = "Grocery Shopping"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let checkoutItem = UIBarButtonItem(image: #imageLiteral(resourceName: "logo_small"), style: .plain, target: self, action: #selector(checkout))
+        self.navigationItem.rightBarButtonItem = checkoutItem
+    }
 }
+
+
 
 extension GroceriesViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -49,6 +58,8 @@ extension GroceriesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+
 extension GroceriesViewController {
     @objc func minusButtonTapped(sender: UIButton) {
         let newAmount = viewModel.groceriesArray[sender.tag].amount - 1
@@ -60,6 +71,11 @@ extension GroceriesViewController {
         let newAmount = viewModel.groceriesArray[sender.tag].amount + 1
         viewModel.groceriesArray[sender.tag].amount = newAmount < 99 ? newAmount : 99
         self.tableView.reloadData()
+    }
+    
+    @objc func checkout() {
+        let totalAmount = viewModel.groceriesArray.reduce(0) { $0 + Float($1.amount) * $1.cost}
+        Alerts.showTotalCosts(target: self, amount: totalAmount)
     }
 }
 

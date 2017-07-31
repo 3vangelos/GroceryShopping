@@ -10,10 +10,10 @@ import Foundation
 
 struct GroceriesViewModel {
     
-    var groceriesArray = [ Grocery(name: "Peas"),
-                           Grocery(name: "Eggs"),
-                           Grocery(name: "Milk"),
-                           Grocery(name: "Beans") ]
+    var groceriesArray = [ Grocery(name: "Peas", cost: 0.95),
+                           Grocery(name: "Eggs", cost: 2.10),
+                           Grocery(name: "Milk", cost: 1.30),
+                           Grocery(name: "Beans", cost: 0.73) ]
     
     init() {
         

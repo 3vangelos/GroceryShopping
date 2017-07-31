@@ -10,9 +10,12 @@ import Foundation
 
 struct Grocery : Codable {
     let name : String
+    let cost : Float
     var amount : Int = 0
     
-    init(name: String) {
+    
+    init(name: String, cost: Float) {
         self.name = name
+        self.cost = cost
     }
 }
