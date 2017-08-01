@@ -10,17 +10,25 @@ import Foundation
 
 class GroceriesViewModel {
     
-    var groceriesArray = [ Grocery(name: "Peas", cost: 0.95),
-                           Grocery(name: "Eggs", cost: 2.10),
-                           Grocery(name: "Milk", cost: 1.30),
-                           Grocery(name: "Beans", cost: 0.73) ]
-    
+    var groceriesArray = [ Grocery(name: "Peas", cost: 0.95), Grocery(name: "Eggs", cost: 2.10), Grocery(name: "Milk", cost: 1.30), Grocery(name: "Beans", cost: 0.73) ]
     var changeRates = ["USD": 1.0, "CAD": 0.0, "EUR": 0.0, "GBP": 0.0, "CHF": 0.0, "JPY": 0.0, "MYR": 0.0]
     
-    init() {
+    init() {}
+
+    func totalCosts(_ currency: String) -> Float {
+        let totalAmountInUSD = groceriesArray.reduce(0) { $0 + Float($1.amount) * $1.cost}
+        let multiplier = changeRates[currency]
+        return totalAmountInUSD  * Float(multiplier!)
     }
     
-    func updateRates(errorAction: @escaping () -> () = {}) {
+    func addToGroceryAtIndex(_ index: Int, amount: Int) {
+        let newAmount = groceriesArray[index].amount + amount
+        groceriesArray[index].amount = newAmount < 0 ? 0
+                                    : newAmount > 99 ? 99
+                                    : newAmount
+    }
+    
+    func updateRates(errorAction: @escaping () -> () = {}, finishAction: @escaping () -> () = {}) {
         
         // check if API Key exists, check that it has no whitespaces
         guard let apiKey = Bundle.main.infoDictionary!["CurrencyApiKey"] as? String, apiKey.rangeOfCharacter(from: .whitespacesAndNewlines) == nil else {
@@ -46,6 +54,8 @@ class GroceriesViewModel {
                     let currencyString = String(currency.dropFirst(3))
                     self.changeRates[currencyString] = conversionRate
                 }
+                
+                finishAction()
             }
             }.resume()
     }

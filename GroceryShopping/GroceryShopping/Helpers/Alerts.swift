@@ -33,4 +33,12 @@ class Alerts {
         target.present(alertController, animated: true)
     }
     
+    static func succesfullUpdate(target: UIViewController) {
+        let title = "Currencies Updated"
+        let description = "The new conversion rates have been downloaded succesfully"
+        let alertController = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(alertAction)
+        target.present(alertController, animated: true)
+    }
 }

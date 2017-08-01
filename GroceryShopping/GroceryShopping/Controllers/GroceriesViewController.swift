@@ -34,6 +34,7 @@ class GroceriesViewController: UIViewController {
         segmentedControl.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -10).isActive = true
         segmentedControl.selectedSegmentIndex = 0
         
+        tableView.separatorStyle = .none
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20).isActive = true
@@ -48,18 +49,29 @@ class GroceriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.updateRates {
+        viewModel.updateRates(errorAction: {
             Alerts.showNetworkError(target: self)
-        }
+        })
         
         let checkoutItem = UIBarButtonItem(image: #imageLiteral(resourceName: "logo_small"), style: .plain, target: self, action: #selector(checkout))
         self.navigationItem.rightBarButtonItem = checkoutItem
+        
+        let reloadCurrencyItem = UIBarButtonItem(image: #imageLiteral(resourceName: "download"), style: .plain, target: self, action: #selector(reloadCurrencies))
+        self.navigationItem.leftBarButtonItem = reloadCurrencyItem
     }
 }
 
 
 
 extension GroceriesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.groceriesArray.count
@@ -80,26 +92,30 @@ extension GroceriesViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-
+// User Interaction
 extension GroceriesViewController {
     @objc func minusButtonTapped(sender: UIButton) {
-        let newAmount = viewModel.groceriesArray[sender.tag].amount - 1
-        viewModel.groceriesArray[sender.tag].amount = newAmount > 0 ? newAmount : 0
+        viewModel.addToGroceryAtIndex(sender.tag, amount:-1)
         self.tableView.reloadData()
     }
     
     @objc func addButtonTapped(sender: UIButton) {
-        let newAmount = viewModel.groceriesArray[sender.tag].amount + 1
-        viewModel.groceriesArray[sender.tag].amount = newAmount < 99 ? newAmount : 99
+        viewModel.addToGroceryAtIndex(sender.tag, amount:+1)
         self.tableView.reloadData()
     }
     
     @objc func checkout() {
-        let totalAmountInUSD = viewModel.groceriesArray.reduce(0) { $0 + Float($1.amount) * $1.cost}
         let selectedCurrency = self.segmentedControl.titleForSegment(at: self.segmentedControl.selectedSegmentIndex) ?? "USD"
-        let multiplier = viewModel.changeRates[selectedCurrency]
-        let totalAmount = totalAmountInUSD  * Float(multiplier!)
+        let totalAmount = viewModel.totalCosts(selectedCurrency)
         Alerts.showTotalCosts(target: self, amount: totalAmount, currency: selectedCurrency)
+    }
+    
+    @objc func reloadCurrencies() {
+        viewModel.updateRates(errorAction: {
+            Alerts.showNetworkError(target: self)
+        }) {
+            Alerts.succesfullUpdate(target: self)
+        }
     }
 }
 
