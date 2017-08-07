@@ -17,6 +17,13 @@
 		D37039811F2FC392005B2CCA /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039801F2FC392005B2CCA /* Grocery.swift */; };
 		D37039831F2FC7D2005B2CCA /* GroceryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039821F2FC7D2005B2CCA /* GroceryTableViewCell.swift */; };
 		D37039851F2FDB7C005B2CCA /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37039841F2FDB7C005B2CCA /* Alerts.swift */; };
+		D398720E1F38E0DF0065F4D4 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D398720D1F38E0DF0065F4D4 /* UIScrollViewExtensions.swift */; };
+		D3C653B81F38BF6C00568448 /* ExchangeRateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C653B71F38BF6C00568448 /* ExchangeRateTask.swift */; };
+		D3C653BA1F38CC4500568448 /* VerticalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C653B91F38CC4500568448 /* VerticalScrollView.swift */; };
+		D3FCD83E1F387DD00069766D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FCD83D1F387DD00069766D /* RequestProtocol.swift */; };
+		D3FCD8401F387EE50069766D /* CurrencyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FCD83F1F387EE50069766D /* CurrencyRequest.swift */; };
+		D3FCD8421F38A3060069766D /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FCD8411F38A3060069766D /* NetworkDispatcher.swift */; };
+		D3FCD8441F38A67F0069766D /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FCD8431F38A67F0069766D /* NetworkResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +52,13 @@
 		D37039801F2FC392005B2CCA /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
 		D37039821F2FC7D2005B2CCA /* GroceryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTableViewCell.swift; sourceTree = "<group>"; };
 		D37039841F2FDB7C005B2CCA /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		D398720D1F38E0DF0065F4D4 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIScrollViewExtensions.swift; path = "GroceryShopping/New Group/UIScrollViewExtensions.swift"; sourceTree = SOURCE_ROOT; };
+		D3C653B71F38BF6C00568448 /* ExchangeRateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateTask.swift; sourceTree = "<group>"; };
+		D3C653B91F38CC4500568448 /* VerticalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollView.swift; sourceTree = "<group>"; };
+		D3FCD83D1F387DD00069766D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		D3FCD83F1F387EE50069766D /* CurrencyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRequest.swift; sourceTree = "<group>"; };
+		D3FCD8411F38A3060069766D /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		D3FCD8431F38A67F0069766D /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +111,13 @@
 			children = (
 				D37039621F2FA913005B2CCA /* AppDelegate.swift */,
 				D37039741F2FB6D6005B2CCA /* Controllers */,
+				D398720F1F38E0E50065F4D4 /* Extensions */,
 				D37039791F2FBE42005B2CCA /* Helpers */,
 				D370397F1F2FC37C005B2CCA /* Models */,
+				D3FCD83C1F387D9B0069766D /* Networking */,
 				D37039751F2FB6F4005B2CCA /* Supporting */,
 				D370397C1F2FC2BC005B2CCA /* ViewModels */,
+				D3C653BB1F38CD5200568448 /* Views */,
 			);
 			path = GroceryShopping;
 			sourceTree = "<group>";
@@ -148,6 +165,35 @@
 				D37039801F2FC392005B2CCA /* Grocery.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D398720F1F38E0E50065F4D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D398720D1F38E0DF0065F4D4 /* UIScrollViewExtensions.swift */,
+			);
+			name = Extensions;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		D3C653BB1F38CD5200568448 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D3C653B91F38CC4500568448 /* VerticalScrollView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D3FCD83C1F387D9B0069766D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D3FCD83F1F387EE50069766D /* CurrencyRequest.swift */,
+				D3FCD8411F38A3060069766D /* NetworkDispatcher.swift */,
+				D3FCD8431F38A67F0069766D /* NetworkResponse.swift */,
+				D3FCD83D1F387DD00069766D /* RequestProtocol.swift */,
+				D3C653B71F38BF6C00568448 /* ExchangeRateTask.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,10 +306,17 @@
 			files = (
 				D370397E1F2FC2EF005B2CCA /* GroceriesViewModel.swift in Sources */,
 				D37039831F2FC7D2005B2CCA /* GroceryTableViewCell.swift in Sources */,
+				D3FCD8401F387EE50069766D /* CurrencyRequest.swift in Sources */,
+				D3C653B81F38BF6C00568448 /* ExchangeRateTask.swift in Sources */,
+				D3FCD8421F38A3060069766D /* NetworkDispatcher.swift in Sources */,
+				D398720E1F38E0DF0065F4D4 /* UIScrollViewExtensions.swift in Sources */,
 				D37039651F2FA913005B2CCA /* GroceriesViewController.swift in Sources */,
 				D370397B1F2FBE5A005B2CCA /* Colors.swift in Sources */,
 				D37039631F2FA913005B2CCA /* AppDelegate.swift in Sources */,
+				D3FCD83E1F387DD00069766D /* RequestProtocol.swift in Sources */,
+				D3FCD8441F38A67F0069766D /* NetworkResponse.swift in Sources */,
 				D37039851F2FDB7C005B2CCA /* Alerts.swift in Sources */,
+				D3C653BA1F38CC4500568448 /* VerticalScrollView.swift in Sources */,
 				D37039811F2FC392005B2CCA /* Grocery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
