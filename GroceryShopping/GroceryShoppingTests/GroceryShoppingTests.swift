@@ -2,7 +2,7 @@
 //  GroceryShoppingTests.swift
 //  GroceryShoppingTests
 //
-//  Created by Sismanidis, Evangelos (415) on 01.08.17.
+//  Created by Sismanidis, Evangelos on 01.08.17.
 //  Copyright © 2017 Private. All rights reserved.
 //
 

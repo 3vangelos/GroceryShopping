@@ -2,7 +2,7 @@
 //  Alerts.swift
 //  GroceryShopping
 //
-//  Created by Sismanidis, Evangelos (415) on 31.07.17.
+//  Created by Sismanidis, Evangelos on 31.07.17.
 //  Copyright © 2017 Private. All rights reserved.
 //
 
